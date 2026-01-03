@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "AI Meeting Assistant",
+    "version": "1.0",
+    "permissions": [
+        "tabCapture",
+        "activeTab",
+        "storage"
+    ],
+    "background": {
+        "service_worker": "background/service-worker.js"
+    },
+    "action": {
+        "default_popup": "popup/popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "*://meet.google.com/*",
+                "*://*.zoom.us/*",
+                "*://teams.microsoft.com/*"
+            ],
+            "js": [
+                "content/content-script.js"
+            ]
+        }
+    ]
+}
